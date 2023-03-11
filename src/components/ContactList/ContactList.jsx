@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactInfo from './ContactList.styled';
+import { ContactInfo, ContactButtom } from './ContactList.styled';
 export const ContactList = ({ items }) => {
   return (
     <>
@@ -8,6 +8,7 @@ export const ContactList = ({ items }) => {
           <ContactInfo key={id}>
             <p>{name}</p>
             <p>{number}</p>
+            <ContactButtom type="button">Delete</ContactButtom>
           </ContactInfo>
         ))}
       </ul>

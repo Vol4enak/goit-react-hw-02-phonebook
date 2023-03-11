@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class Filter extends Component {
 
-    zxc = (e) => {
+    trowValue = (e) => {
         const value = e.currentTarget.value;
         this.props.onChange(value);
     }
@@ -10,7 +10,7 @@ export class Filter extends Component {
     return (
       <>
         <p>Find contacts by name</p>
-        <input type="text" onChange={this.zxc} />
+        <input type="text" onChange={this.trowValue} />
       </>
     );
   }
