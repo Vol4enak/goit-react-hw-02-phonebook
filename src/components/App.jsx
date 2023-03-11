@@ -24,7 +24,6 @@ export class App extends Component {
   formSubmitHandler = ({ name, number }) => {
     const onFindSame = this.visibleContact();
     const res = onFindSame.find(index => index.name === name);
-    console.log(res)
     if (res) {
       alert(`${name} is already in contacts`);
       return;
