@@ -1,6 +1,10 @@
 import React from 'react';
 import { ContactInfo, ContactButtom } from './ContactList.styled';
-export const ContactList = ({ items }) => {
+export const ContactList = ({ items, onDeleteContact }) => {
+  const btnClick = e => {
+    console.log(e.currentTarget);
+  };
+
   return (
     <>
       <ul>
@@ -8,7 +12,9 @@ export const ContactList = ({ items }) => {
           <ContactInfo key={id}>
             <p>{name}</p>
             <p>{number}</p>
-            <ContactButtom type="button">Delete</ContactButtom>
+            <ContactButtom type="button" onClick={() => onDeleteContact(id)}>
+              Delete
+            </ContactButtom>
           </ContactInfo>
         ))}
       </ul>

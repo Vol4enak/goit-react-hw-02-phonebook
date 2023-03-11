@@ -15,12 +15,19 @@ export class App extends Component {
     ],
     filter: '',
   };
+  deleteContact = idContact => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== idContact),
+    }));
+  };
 
   formSubmitHandler = ({ name, number }) => {
-
-    if (this.visibleContact) {
-      alert(`${name} is already in contacts`)
-      return
+    const onFindSame = this.visibleContact();
+    const res = onFindSame.find(index => index.name === name);
+    console.log(res)
+    if (res) {
+      alert(`${name} is already in contacts`);
+      return;
     }
     const contact = {
       id: nanoid(),
@@ -43,8 +50,8 @@ export class App extends Component {
     );
   };
   render() {
-
     const visibility = this.visibleContact();
+   
     return (
       <Container>
         <h1>Phonebook</h1>
@@ -57,7 +64,7 @@ export class App extends Component {
 
         <Filter onChange={this.filterByName} />
 
-        <ContactList items={visibility} />
+        <ContactList items={visibility} onDeleteContact={this.deleteContact} />
       </Container>
     );
   }
