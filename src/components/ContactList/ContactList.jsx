@@ -1,9 +1,7 @@
 import React from 'react';
 import { ContactInfo, ContactButtom } from './ContactList.styled';
 export const ContactList = ({ items, onDeleteContact }) => {
-  const btnClick = e => {
-    console.log(e.currentTarget);
-  };
+
 
   return (
     <>
